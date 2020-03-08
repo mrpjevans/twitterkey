@@ -18,10 +18,10 @@ morse = {
 }
 
 while True:
-    
+
     # Wait for a keypress or until a letter has been completed
     button.wait_for_press(dash_timeout)
-    
+
     # If we've timed out and there's been previous keypresses, show the letter
     if button.is_pressed is False and len(current_letter) > 0:
         print("\nMorse: " + current_letter)
@@ -30,7 +30,7 @@ while True:
         else:
             print("Not recognised")
         current_letter = ""
-        
+
     elif button.is_pressed:
 
         # The key has been pressed, work out if it's a dot or a dash
@@ -41,10 +41,10 @@ while True:
 
         # Was it a dot or dash?
         if button_down_length > dot_timeout:
-            print('-', end = '', flush = True)
+            print('-', end='', flush=True)
             current_letter += '-'
         else:
-            print('.', end = '', flush = True)
+            print('.', end='', flush=True)
             current_letter += '.'
 
     time.sleep(0.1)
